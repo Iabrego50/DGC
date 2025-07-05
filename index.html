@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DGC App</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        
+        .status {
+            background: #e7f5e7;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #2e7d32;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .info {
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #666;
+        }
+        
+        .button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin: 10px;
+        }
+        
+        .button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .timestamp {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 DGC App</h1>
+        <div class="status">
+            ✅ Application is running successfully!
+        </div>
+        <div class="info">
+            <h3>Welcome to your DGC Application</h3>
+            <p>This is a simple web application that demonstrates the DGC project is up and running.</p>
+            <p>You can now start developing your application by modifying the code as needed.</p>
+        </div>
+        <button class="button" onclick="refreshApp()">🔄 Refresh</button>
+        <button class="button" onclick="showInfo()">ℹ️ Info</button>
+        <div class="timestamp" id="timestamp"></div>
+    </div>
+
+    <script>
+        function updateTimestamp() {
+            const now = new Date();
+            document.getElementById('timestamp').textContent = 
+                `Last updated: ${now.toLocaleString()}`;
+        }
+        
+        function refreshApp() {
+            updateTimestamp();
+            setTimeout(() => {
+                location.reload();
+            }, 500);
+        }
+        
+        function showInfo() {
+            alert('DGC App v1.0\nA simple web application\nBuilt with HTML, CSS, and JavaScript');
+        }
+        
+        // Initialize timestamp when page loads
+        updateTimestamp();
+        
+        // Update timestamp every 30 seconds
+        setInterval(updateTimestamp, 30000);
+    </script>
+</body>
+</html>
