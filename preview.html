@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Preview - Sarah Chen UX Research</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            color: #1e293b;
+            margin-bottom: 10px;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .server-status {
+            background: #f0f9ff;
+            border: 2px solid #0ea5e9;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px 0;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .preview-links {
+            display: grid;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .preview-btn {
+            display: block;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .preview-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+        
+        .secondary-btn {
+            background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+            box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3);
+        }
+        
+        .secondary-btn:hover {
+            box-shadow: 0 8px 25px rgba(100, 116, 139, 0.4);
+        }
+        
+        .instructions {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        
+        .instructions h3 {
+            color: #1e293b;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .instructions ol {
+            color: #64748b;
+            line-height: 1.6;
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .mobile-note {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 20px;
+            color: #92400e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🎨</div>
+        <h1>Sarah Chen UX Research Portfolio</h1>
+        <p class="subtitle">Director of UX Research • 12+ Years Experience</p>
+        
+        <div class="server-status">
+            <div>
+                <span class="status-indicator"></span>
+                <strong>Server Status: Running</strong>
+            </div>
+            <p style="margin-top: 10px; color: #64748b;">Your portfolio is ready to preview!</p>
+        </div>
+        
+        <div class="preview-links">
+            <a href="index.html" class="preview-btn" target="_blank">
+                🏠 View Main Portfolio
+            </a>
+            <a href="about.html" class="preview-btn secondary-btn" target="_blank">
+                👤 About Page
+            </a>
+            <a href="portfolio.html" class="preview-btn secondary-btn" target="_blank">
+                💼 Portfolio/Case Studies
+            </a>
+            <a href="insights.html" class="preview-btn secondary-btn" target="_blank">
+                📊 Insights & Blog
+            </a>
+            <a href="contact.html" class="preview-btn secondary-btn" target="_blank">
+                📧 Contact Page
+            </a>
+        </div>
+        
+        <div class="instructions">
+            <h3>📱 How to Preview on Mobile:</h3>
+            <ol>
+                <li><strong>Click any link above</strong> to open the portfolio</li>
+                <li><strong>Look for "Open in Browser"</strong> option in your workspace</li>
+                <li><strong>Check the Ports panel</strong> at the bottom of Cursor</li>
+                <li><strong>Try the workspace URL</strong> if available</li>
+            </ol>
+        </div>
+        
+        <div class="mobile-note">
+            <strong>📱 Mobile Note:</strong> If you can't access localhost on mobile, look for a "Preview" or "Open in Browser" button in your Cursor workspace interface.
+        </div>
+    </div>
+</body>
+</html>
