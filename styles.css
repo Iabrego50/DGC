@@ -1165,3 +1165,321 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================================================
+   Research Brief Tool
+   ========================================================================== */
+
+.brief-hero {
+    padding: 120px 0 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+}
+
+.brief-hero h1 {
+    font-size: 2.75rem;
+    margin-bottom: 1rem;
+}
+
+.brief-hero p {
+    font-size: 1.15rem;
+    max-width: 720px;
+    margin: 0 auto;
+    opacity: 0.92;
+}
+
+.brief-tool {
+    padding: 60px 0 100px;
+}
+
+.brief-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.brief-form {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.brief-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 2rem;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 1.5rem;
+}
+
+.brief-fieldset:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.brief-fieldset legend {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2563eb;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    padding: 0;
+}
+
+.brief-form .form-group {
+    margin-bottom: 1.1rem;
+}
+
+.brief-form label {
+    display: block;
+    font-weight: 500;
+    color: #1e293b;
+    margin-bottom: 0.4rem;
+}
+
+.brief-form input[type="text"],
+.brief-form input[type="date"],
+.brief-form select,
+.brief-form textarea {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #1e293b;
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.brief-form textarea {
+    resize: vertical;
+    min-height: 72px;
+}
+
+.brief-form input:focus,
+.brief-form select:focus,
+.brief-form textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.form-hint {
+    display: block;
+    margin-top: 0.35rem;
+    color: #64748b;
+    font-size: 0.8rem;
+}
+
+.req {
+    color: #ef4444;
+}
+
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.checkbox-grid label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+    font-size: 0.92rem;
+    color: #334155;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.checkbox-grid input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #2563eb;
+}
+
+.brief-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.brief-actions-top {
+    justify-content: flex-end;
+    margin-bottom: 1.5rem;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: #2563eb;
+    border: 1px solid #cbd5e1;
+    padding: 0.55rem 1.1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-ghost:hover {
+    background: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.brief-preview {
+    position: sticky;
+    top: 90px;
+}
+
+.brief-preview-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem 2.25rem;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    max-height: 75vh;
+    overflow-y: auto;
+    color: #1e293b;
+}
+
+.brief-preview-card h1,
+.brief-preview-card h2,
+.brief-preview-card h3 {
+    color: #0f172a;
+    margin-top: 1.25rem;
+}
+
+.brief-preview-card h1 {
+    font-size: 1.75rem;
+    margin-top: 0;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.75rem;
+}
+
+.brief-preview-card h2 {
+    font-size: 1.15rem;
+    color: #2563eb;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.brief-preview-card p,
+.brief-preview-card li {
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.brief-preview-card ul {
+    padding-left: 1.25rem;
+    margin: 0.25rem 0 0.5rem;
+}
+
+.brief-preview-card .brief-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0.5rem 0 1rem;
+}
+
+.brief-preview-card .brief-meta span strong {
+    color: #334155;
+    font-weight: 600;
+    margin-right: 0.35rem;
+}
+
+.brief-placeholder {
+    color: #94a3b8;
+    font-style: italic;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.brief-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: #0f172a;
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 2000;
+}
+
+.brief-toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+@media (max-width: 900px) {
+    .brief-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .brief-preview {
+        position: static;
+    }
+
+    .brief-preview-card {
+        max-height: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .checkbox-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .brief-hero h1 {
+        font-size: 2rem;
+    }
+}
+
+@media print {
+    .navbar,
+    .footer,
+    .brief-hero,
+    .brief-form,
+    .brief-actions,
+    .hamburger,
+    .back-to-top {
+        display: none !important;
+    }
+
+    .brief-tool {
+        padding: 0;
+    }
+
+    .brief-layout {
+        display: block;
+    }
+
+    .brief-preview-card {
+        box-shadow: none;
+        max-height: none;
+        padding: 0;
+    }
+}

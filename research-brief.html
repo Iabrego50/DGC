@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Brief Tool - Sarah Chen - Director of UX Research</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Sarah Chen</a>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="portfolio.html" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="insights.html" class="nav-link">Insights</a>
+                </li>
+                <li class="nav-item">
+                    <a href="research-brief.html" class="nav-link active">Brief Tool</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="brief-hero">
+        <div class="container">
+            <h1>Research Brief Generator</h1>
+            <p>Fill in the fields below to assemble a structured UX research brief. Preview it live, then copy, download as Markdown, or print to PDF.</p>
+        </div>
+    </section>
+
+    <!-- Tool -->
+    <section class="brief-tool">
+        <div class="container">
+            <div class="brief-layout">
+                <!-- Form -->
+                <form id="briefForm" class="brief-form" autocomplete="off">
+                    <div class="brief-actions brief-actions-top">
+                        <button type="button" class="btn btn-ghost" id="loadSampleBtn">Load Example</button>
+                        <button type="button" class="btn btn-ghost" id="resetBriefBtn">Reset</button>
+                    </div>
+
+                    <fieldset class="brief-fieldset">
+                        <legend>Project Basics</legend>
+
+                        <div class="form-group">
+                            <label for="projectTitle">Project title <span class="req">*</span></label>
+                            <input type="text" id="projectTitle" name="projectTitle" placeholder="e.g., Checkout abandonment discovery study" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="owner">Research lead</label>
+                                <input type="text" id="owner" name="owner" placeholder="Name, role">
+                            </div>
+                            <div class="form-group">
+                                <label for="stakeholders">Key stakeholders</label>
+                                <input type="text" id="stakeholders" name="stakeholders" placeholder="PM, Design Lead, Eng Manager">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="briefDate">Date</label>
+                                <input type="date" id="briefDate" name="briefDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="status">Status</label>
+                                <select id="status" name="status">
+                                    <option value="Draft">Draft</option>
+                                    <option value="In review">In review</option>
+                                    <option value="Approved">Approved</option>
+                                    <option value="In field">In field</option>
+                                    <option value="Complete">Complete</option>
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="brief-fieldset">
+                        <legend>Why This Matters</legend>
+
+                        <div class="form-group">
+                            <label for="background">Background &amp; context</label>
+                            <textarea id="background" name="background" rows="4" placeholder="Product area, what prompted this research, prior findings, current hypotheses..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="businessGoal">Business goal</label>
+                            <textarea id="businessGoal" name="businessGoal" rows="2" placeholder="What decision will this research inform? What metric or outcome does it support?"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="brief-fieldset">
+                        <legend>Objectives &amp; Questions</legend>
+
+                        <div class="form-group">
+                            <label for="objectives">Research objectives <span class="req">*</span></label>
+                            <textarea id="objectives" name="objectives" rows="4" placeholder="One objective per line" required></textarea>
+                            <small class="form-hint">One per line. Rendered as a bulleted list.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="questions">Research questions</label>
+                            <textarea id="questions" name="questions" rows="4" placeholder="One question per line"></textarea>
+                            <small class="form-hint">One per line.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hypotheses">Hypotheses (optional)</label>
+                            <textarea id="hypotheses" name="hypotheses" rows="3" placeholder="One hypothesis per line"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="brief-fieldset">
+                        <legend>Method &amp; Participants</legend>
+
+                        <div class="form-group">
+                            <label>Methods</label>
+                            <div class="checkbox-grid" id="methodsGrid">
+                                <label><input type="checkbox" name="methods" value="User interviews"> User interviews</label>
+                                <label><input type="checkbox" name="methods" value="Usability testing"> Usability testing</label>
+                                <label><input type="checkbox" name="methods" value="Diary study"> Diary study</label>
+                                <label><input type="checkbox" name="methods" value="Survey"> Survey</label>
+                                <label><input type="checkbox" name="methods" value="Concept testing"> Concept testing</label>
+                                <label><input type="checkbox" name="methods" value="Card sorting"> Card sorting</label>
+                                <label><input type="checkbox" name="methods" value="Tree testing"> Tree testing</label>
+                                <label><input type="checkbox" name="methods" value="Heuristic evaluation"> Heuristic evaluation</label>
+                                <label><input type="checkbox" name="methods" value="Analytics review"> Analytics review</label>
+                                <label><input type="checkbox" name="methods" value="A/B test"> A/B test</label>
+                                <label><input type="checkbox" name="methods" value="Field study"> Field study</label>
+                                <label><input type="checkbox" name="methods" value="Competitive analysis"> Competitive analysis</label>
+                            </div>
+                            <div class="form-group">
+                                <label for="methodsOther">Other methods</label>
+                                <input type="text" id="methodsOther" name="methodsOther" placeholder="Comma-separated">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="audience">Target audience</label>
+                            <textarea id="audience" name="audience" rows="2" placeholder="Who are we learning from? Segments, personas, behaviors..."></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sampleSize">Sample size</label>
+                                <input type="text" id="sampleSize" name="sampleSize" placeholder="e.g., 8-10 participants">
+                            </div>
+                            <div class="form-group">
+                                <label for="incentive">Incentive</label>
+                                <input type="text" id="incentive" name="incentive" placeholder="e.g., $100 gift card per session">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="recruitment">Recruitment criteria</label>
+                            <textarea id="recruitment" name="recruitment" rows="3" placeholder="Screener criteria, inclusion/exclusion, quotas..."></textarea>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="brief-fieldset">
+                        <legend>Timeline &amp; Deliverables</legend>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="startDate">Start date</label>
+                                <input type="date" id="startDate" name="startDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="endDate">End date</label>
+                                <input type="date" id="endDate" name="endDate">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="milestones">Milestones</label>
+                            <textarea id="milestones" name="milestones" rows="3" placeholder="One milestone per line, e.g., 'Apr 22 — Screener live'"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="deliverables">Deliverables</label>
+                            <textarea id="deliverables" name="deliverables" rows="3" placeholder="Readout deck, highlight reel, opportunity map, etc."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="successMetrics">Success metrics</label>
+                            <textarea id="successMetrics" name="successMetrics" rows="2" placeholder="How will we know this research was successful?"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="brief-fieldset">
+                        <legend>Scope &amp; Risks</legend>
+
+                        <div class="form-group">
+                            <label for="outOfScope">Out of scope</label>
+                            <textarea id="outOfScope" name="outOfScope" rows="2" placeholder="What we are explicitly not covering"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="assumptions">Assumptions &amp; constraints</label>
+                            <textarea id="assumptions" name="assumptions" rows="2" placeholder="Tooling, access, legal, timeline constraints..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="risks">Risks</label>
+                            <textarea id="risks" name="risks" rows="2" placeholder="Recruitment risk, timing risk, sample bias..."></textarea>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <!-- Preview -->
+                <aside class="brief-preview" aria-live="polite">
+                    <div class="brief-actions">
+                        <button type="button" class="btn btn-primary" id="copyBriefBtn">Copy Markdown</button>
+                        <button type="button" class="btn btn-secondary" id="downloadBriefBtn">Download .md</button>
+                        <button type="button" class="btn btn-ghost" id="printBriefBtn">Print / PDF</button>
+                    </div>
+                    <div class="brief-preview-card" id="briefPreview">
+                        <p class="brief-placeholder">Your research brief will appear here as you fill in the form.</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sarah Chen</h3>
+                    <p>Director of UX Research</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="research-brief.html">Brief Tool</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="https://linkedin.com/in/sarahchen">LinkedIn</a></li>
+                        <li><a href="https://twitter.com/sarahchen">Twitter</a></li>
+                        <li><a href="mailto:sarah@example.com">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sarah Chen. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
