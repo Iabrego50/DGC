@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReelResearch — Video Research Repository</title>
+    <link rel="stylesheet" href="research-repo.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Left rail: navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-mark">▶</span>
+                    <span class="logo-text">ReelResearch</span>
+                </div>
+                <p class="logo-tag">Video-first research repository</p>
+            </div>
+
+            <nav class="side-nav">
+                <button class="side-link active" data-feed="foryou">
+                    <span class="ico">◉</span> For Your Research
+                </button>
+                <button class="side-link" data-feed="following">
+                    <span class="ico">☆</span> Tracked Studies
+                </button>
+                <button class="side-link" data-feed="discover">
+                    <span class="ico">◈</span> Discover
+                </button>
+                <button class="side-link" data-feed="saved">
+                    <span class="ico">◆</span> Saved Insights
+                </button>
+                <button class="side-link" data-feed="mine">
+                    <span class="ico">○</span> My Library
+                </button>
+            </nav>
+
+            <div class="sidebar-section">
+                <h4>Active Projects</h4>
+                <ul class="project-list" id="projectList"></ul>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>Trending Themes</h4>
+                <div class="tag-cloud" id="tagCloud"></div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="me">
+                    <div class="avatar">MR</div>
+                    <div>
+                        <div class="me-name">Morgan Reyes</div>
+                        <div class="me-role">Sr. UX Researcher</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main feed -->
+        <main class="feed-wrap">
+            <header class="feed-header">
+                <div class="feed-tabs">
+                    <button class="tab active" data-feed="foryou">For Your Research</button>
+                    <button class="tab" data-feed="following">Tracked</button>
+                    <button class="tab" data-feed="discover">Discover</button>
+                </div>
+                <div class="feed-search">
+                    <input type="text" id="searchInput" placeholder="Search transcripts, participants, themes…" />
+                    <button class="btn-ghost" id="openUpload">＋ Upload Clip</button>
+                </div>
+            </header>
+
+            <div class="feed" id="feed"></div>
+
+            <div class="feed-hint" id="feedHint">
+                <span>▲ ▼ to navigate · <kbd>L</kbd> Insight · <kbd>A</kbd> Annotate · <kbd>S</kbd> Save · <kbd>T</kbd> Tag</span>
+            </div>
+        </main>
+
+        <!-- Right rail: context / annotations -->
+        <aside class="context" id="context">
+            <div class="context-tabs">
+                <button class="ctab active" data-ctab="details">Details</button>
+                <button class="ctab" data-ctab="annotations">Annotations</button>
+                <button class="ctab" data-ctab="transcript">Transcript</button>
+            </div>
+            <div class="context-body" id="contextBody"></div>
+        </aside>
+    </div>
+
+    <!-- Modal: Add to project -->
+    <div class="modal" id="projectModal" hidden>
+        <div class="modal-card">
+            <header>
+                <h3>Save to project</h3>
+                <button class="x" data-close>×</button>
+            </header>
+            <div class="modal-body" id="projectModalBody"></div>
+        </div>
+    </div>
+
+    <!-- Modal: Upload -->
+    <div class="modal" id="uploadModal" hidden>
+        <div class="modal-card">
+            <header>
+                <h3>Upload research clip</h3>
+                <button class="x" data-close>×</button>
+            </header>
+            <form class="modal-body" id="uploadForm">
+                <label>Study name<input name="study" required placeholder="e.g. Onboarding Round 3"/></label>
+                <label>Participant ID<input name="participant" required placeholder="P014"/></label>
+                <label>Title / moment<input name="title" required placeholder="Discovers checkout is gated behind signup"/></label>
+                <label>Method
+                    <select name="method">
+                        <option>Moderated Interview</option>
+                        <option>Usability Test</option>
+                        <option>Diary Study</option>
+                        <option>Field Study</option>
+                        <option>Concept Test</option>
+                    </select>
+                </label>
+                <label>Themes (comma separated)<input name="tags" placeholder="onboarding, trust, friction"/></label>
+                <label>Transcript snippet<textarea name="transcript" rows="4" placeholder="[00:42] I don't want to sign up just to see the price..."></textarea></label>
+                <div class="modal-actions">
+                    <button type="button" class="btn-ghost" data-close>Cancel</button>
+                    <button type="submit" class="btn-primary">Add to repository</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast" hidden></div>
+
+    <script src="research-repo.js"></script>
+</body>
+</html>
